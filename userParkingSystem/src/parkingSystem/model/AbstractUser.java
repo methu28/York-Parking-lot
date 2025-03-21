@@ -1,0 +1,66 @@
+package parkingSystem.model;
+
+public class AbstractUser {
+	protected String name, email, password, role; 
+	protected boolean isValid; 
+	
+	public AbstractUser(String name, String email, String password, String role)
+	{
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		this.isValid = role.equals("Visitor");
+	}
+	
+	public void setName(String name) 
+	{
+        this.name = name;
+    }
+	
+	 public String getName() 
+	 { 	
+		 return name; 
+	 }
+	 
+	 public void setEmail(String email) 
+	 {
+	        this.email = email;
+	 }
+	 
+	 
+	 public String getEmail() 
+	 { 
+		 return email; 
+	 }
+	 
+	 public void setPassword(String password) 
+	 {
+	        this.password = password;
+	 }
+	 
+	 public String getPassword() 
+	 { 
+		 return password; 
+	 }
+	 
+	 public String getRole() 
+	 { 
+		 return role; 
+	 }
+	 
+	 public boolean isValidated() 
+	 { 
+		 return isValid; 
+	 }
+	 
+	 public void validateUser() 
+	 { 
+		 this.isValid = true; 
+	 }
+	   
+	 @Override
+	 public String toString() {
+	        return name + " (" + email + ") - Role: " + role + " - Validated: " + isValid;
+	    }
+}
