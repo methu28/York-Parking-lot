@@ -88,7 +88,7 @@ public class MaintainUser
 	public boolean validateUser(String managerEmail, String userEmail) throws Exception 
 	{
         AbstractUser manager = getUserByEmail(managerEmail);
-        if (manager == null || (!manager.getRole().equalsIgnoreCase("Manager") && !manager.getRole().equalsIgnoreCase("Super Manager"))) 
+        if (manager == null || (!manager.getRole().equalsIgnoreCase("Manager") && !manager.getRole().equalsIgnoreCase("SuperManager"))) 
         {
             System.out.println("Error: Only Managers or the Super Manager can validate users.");
             return false;
