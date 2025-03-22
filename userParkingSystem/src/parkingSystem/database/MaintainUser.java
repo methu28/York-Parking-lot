@@ -2,6 +2,7 @@ package parkingSystem.database;
 import parkingSystem.model.AbstractUser;
 import parkingSystem.model.StudentUser;
 import parkingSystem.model.FacultyUser;
+import parkingSystem.model.ManagerUser;
 import parkingSystem.model.VisitorUser;
 import com.csvreader.CsvReader;
 import com.csvreader.CsvWriter;
@@ -34,9 +35,15 @@ public class MaintainUser
 	        	case "student":
 	        		user = new StudentUser(name, email, password);
 	                    break;
+	                    
 	        	case "faculty":
 	        		user = new FacultyUser(name, email, password);
 	                    break;
+	                    
+	        	case "manager":
+					user = new ManagerUser(name,email,password);
+					break;
+					
 	        	case "visitor":
 	        		user = new VisitorUser(name, email, password);
 	                    break;
@@ -114,22 +121,29 @@ public class MaintainUser
 			if (user != null) 
 			{
 				user.setName(newName);
-	            user.setEmail(newEmail);
-	            user.setPassword(newPassword);
-	            userUpdate = true;
-	            break; 
-	            
+				if(!user.getRole().equalsIgnoreCase("Manager"))
+				{
+		           		 user.setEmail(newEmail);
+
+				}
+				else
+				{
+					System.out.println("Error: Managers can't change their email.");
+	
+				}
+	            		user.setPassword(newPassword);
+	            		userUpdate = true;	            
 			}
 		
 		
 		if(userUpdate)
 		{
-			 update(); 
-             System.out.println("User updated successfully!");
+			update(); 
+            	 	System.out.println("User updated successfully!");
 		}
 		else
 		{
-	        System.out.println("User not found!");	  
+	        	System.out.println("User not found!");	  
 
 		}
 	}
@@ -141,8 +155,8 @@ public class MaintainUser
 			 if (existingUser.getEmail().equals(user.getEmail())) 
 			 {
 				 System.out.println("A user with this email already exists!");
-		         return;  
-		     }
+		         	return;  
+		     	 }
 		 }
 	    users.add(user);
 	    update();
