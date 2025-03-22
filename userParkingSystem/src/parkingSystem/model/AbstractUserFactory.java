@@ -39,7 +39,6 @@ class ManagerUserFactory implements AbstractUserFactory
     public AbstractUser createUser(String name, String email, String password) 
     {
         AbstractUser user = new ManagerUser(name, email, password);
-        user.isValid = true;
         return user;
     }
 }
