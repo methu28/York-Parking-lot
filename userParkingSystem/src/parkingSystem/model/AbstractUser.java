@@ -14,7 +14,7 @@ public class AbstractUser {
 	}
 	
 	
-	public boolean isValid() 
+	public boolean getValid() 
 	{
         return isValid;
     }
