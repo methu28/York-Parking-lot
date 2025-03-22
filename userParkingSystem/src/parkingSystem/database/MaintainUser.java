@@ -42,7 +42,6 @@ public class MaintainUser
 	                    
 	        	case "manager":
 					user = new ManagerUser(name,email,password);
-	                user.setValid(true);
 					break;
 					
 	        	case "visitor":
@@ -53,7 +52,7 @@ public class MaintainUser
 	        		System.out.println("Invalid role: " + role);
 	                   	continue;
 	            }
-
+	        	user.setValid(isValidated);
 	            users.add(user);
 	        }
 	        reader.close();
@@ -75,6 +74,7 @@ public class MaintainUser
 	         csvOutput.write(u.getEmail());
 	         csvOutput.write(u.getPassword());
 	         csvOutput.write(u.getRole());
+	         csvOutput.write(String.valueOf(u.isValidated()));
 	         csvOutput.endRecord();
 	     }
 	     csvOutput.close();
@@ -90,16 +90,16 @@ public class MaintainUser
             return false;
         }
 
-        for (AbstractUser user : users) 
-        {
-            if (user.getEmail().equalsIgnoreCase(userEmail) && !user.isValidated()) 
+        AbstractUser user = getUserByEmail(userEmail);
+
+            if (user != null && !user.isValidated()) 
             {
                 user.validateUser();
-                update(); // Save changes to CSV
+                update(); 
                 System.out.println("User " + userEmail + " has been validated by " + managerEmail);
                 return true;
             }
-        }
+       
         System.out.println("Error: User not found or already validated.");
         return false;
     }
