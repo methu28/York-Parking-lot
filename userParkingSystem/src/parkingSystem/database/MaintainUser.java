@@ -70,6 +70,7 @@ public class MaintainUser
 	     csvOutput.write("email");
 	     csvOutput.write("password");
 	     csvOutput.write("role");
+	     csvOutput.write("validated");
 	     csvOutput.endRecord();
 	     
 	     for (AbstractUser u : users) 
