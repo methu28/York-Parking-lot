@@ -17,6 +17,7 @@ public class AbstractUser {
 		this.id = idGenerator++;
 	}
 	
+	public abstract Double getRate();
 	
 	public boolean isValid() 
 	{
