@@ -6,5 +6,9 @@ public class VisitorUser extends AbstractUser {
 		this.isValid = true; 
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public double getRate() {
+		return 15;
+	}
 	
 }
