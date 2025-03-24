@@ -91,11 +91,7 @@ public class loginInterface extends JFrame
 	            {
 	                messageLabel.setText("Error: Invalid email or password.");
 	            }
-	        } catch (Exception ex) 
-	        {
-	            ex.printStackTrace();
-	            messageLabel.setText("Error: Could not validate login.");
-	        }
+	        } 
 	    }
 
 	    private void openSignUp() 
