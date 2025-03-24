@@ -1,3 +1,0 @@
-name,email,password,role,validated
-Peter Griffin,Griffin@gmail.com,chickenhunter-12,SuperManager,true
-John Doe,john@example.com,Password123!,Student,false
