@@ -14,6 +14,7 @@ public class AbstractUser {
 		this.password = password;
 		this.role = role;
 		this.isValid = role.equals("Visitor");
+		this.id = idGenerator++;
 	}
 	
 	
