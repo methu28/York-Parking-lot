@@ -1,6 +1,9 @@
 package parkingSystem.model;
 
 public class AbstractUser {
+	private static int idGenerator = 1;
+	
+	protected int id;
 	protected String name, email, password, role; 
 	protected boolean isValid; 
 	
