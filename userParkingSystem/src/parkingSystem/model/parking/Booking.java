@@ -29,12 +29,12 @@ public class Booking {
     }
     public void processDeposit() {
         double deposit = user.getRate();
-        //Process deposit for no-shows
+        //TODO: Process deposit for no-shows
     }
     public void refundFees() {
         double totalHours = Duration.between(startTime, endTime).toHours();
         double fees = totalHours * user.getRate();
-        //Process refund for cancellation
+        //TODO: Process refund for cancellation
     }
 
     public void noShow() {
