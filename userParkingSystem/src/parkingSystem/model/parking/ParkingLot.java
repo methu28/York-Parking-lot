@@ -10,7 +10,6 @@ public class ParkingLot {
         this.location = location;
         this.spaces = new ArrayList<>();
 
-        //Unique ID for each space, can change to 
         for(int i = 1; i <= 100; i++) {
             this.spaces.add(new ParkingSpace(i, this));
         }
