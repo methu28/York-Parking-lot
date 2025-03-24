@@ -74,6 +74,9 @@ public class ParkingSpace {
     public boolean isOccupied() {
         return this.isOccupied;
     }
+    public void setOccupied(boolean b) {
+        this.isOccupied = b;
+    }
     public boolean isEnabled() {
         return this.isEnabled;
     }
