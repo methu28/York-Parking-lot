@@ -60,12 +60,12 @@ public class MaintainUser {
 
             user.setValid(isValidated);
             users.add(user);
-            reader.close();
-
         }
+        reader.close();
+
 
     }
-    public void update() throws Exception {
+    public void update() throws IOException {
 
         CsvWriter csvOutput = new CsvWriter(new FileWriter(FILE_PATH, false), ',');
 
@@ -89,6 +89,17 @@ public class MaintainUser {
 
     }
 
+    public void addUser(AbstractUser user) throws Exception {
+        // Add user to the list
+        users.add(user);
+        // Update the CSV file with the new user list
+        
+			update();
+		
+    }
 
+    public ArrayList<AbstractUser> getUsers() {
+        return users;
+    }
 
 }
