@@ -65,7 +65,6 @@ public class LoginTab extends JPanel {
         String password = new String(passwordField.getPassword());
         AbstractUser user = ParkingSystem.getInstance().login(inputUser, password);
 
-        //Login with user if email is not in database/ParkingSystem
         if(user == null) {
             user = ParkingSystem.getInstance().loginViaName(inputUser, password);
         }
