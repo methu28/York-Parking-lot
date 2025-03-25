@@ -55,11 +55,18 @@ public class RegisterTab extends JPanel {
         add(new JLabel(""));
         add(status);
 
-        registerButton.addActionListener(this::register);
+        registerButton.addActionListener(e -> {
+			try {
+				register(e);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 
     }
 
-    private void register(ActionEvent e) {
+    private void register(ActionEvent e) throws Exception {
 
         String username = nameField.getText();
         String email = emailField.getText();
