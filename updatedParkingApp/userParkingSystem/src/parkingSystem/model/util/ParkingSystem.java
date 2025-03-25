@@ -1,8 +1,10 @@
 package parkingSystem.model.util;
 
+import parkingSystem.database.MaintainUser;
 import parkingSystem.model.*;
 import parkingSystem.model.parking.ParkingLot;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,12 +14,20 @@ public class ParkingSystem {
     private List<AbstractUser> users;
     private List<ParkingLot> lots;
     private SuperManager superManager;
+    private MaintainUser maintainUser;
+
 
     private ParkingSystem() {
         users = new ArrayList<>();
         lots = new ArrayList<>();
-
+        maintainUser = new MaintainUser();
+        try {
+            maintainUser.load();  // Load users from the CSV file
+        } catch (IOException e) {
+            System.out.println("Error loading users from CSV: " + e.getMessage());
+        }
     }
+ 
 
     public static ParkingSystem getInstance() {
         if(instance == null) {
@@ -34,21 +44,18 @@ public class ParkingSystem {
         System.out.println("Super manager instance already exists.");
     }
 
-    public void registerUser(AbstractUser user) {
-        this.users.add(user);
-
-        if(!user.isValid()) {
-            ValidationRequestBuffer.getInstance().addRequest(user);
-        }
+    public void registerUser(AbstractUser user) throws Exception {
+    	
+			maintainUser.addUser(user);
+       
     }
     public void removeUser(AbstractUser user) {
         this.users.remove(user);
     }
 
     public AbstractUser login(String email, String password) {
-        if(email.equals("null")) {
-            return null;
-        }
+        
+        List<AbstractUser> users = maintainUser.getUsers();
 
         for(AbstractUser user : users) {
             if(user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
@@ -83,3 +90,4 @@ public class ParkingSystem {
     }
 
 }
+
