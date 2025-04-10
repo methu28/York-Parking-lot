@@ -73,7 +73,11 @@ public class GenerateTab extends JPanel {
         String password = Generator.generateStrongPassword();
 
         AbstractUser manager = new ManagerUser(name, email, password);
+        try{
         ParkingSystem.getInstance().registerUser(manager);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         viewManagers();
         status.setText(name + " successfully generated! pass: " + password);
     }
