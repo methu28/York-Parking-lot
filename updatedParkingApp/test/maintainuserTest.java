@@ -50,7 +50,6 @@ class maintainuserTest {
         AbstractUser newUser = new StudentUser("Jane Smith", "jane@example.com", "jane-345");
         maintainUser.addUser(newUser);
 
-        // Reload and check
         maintainUser.load();
         assertEquals(2, maintainUser.getUsers().size());
         assertTrue(maintainUser.getUsers().stream().anyMatch(u -> u.getEmail().equals("jane@example.com")));
