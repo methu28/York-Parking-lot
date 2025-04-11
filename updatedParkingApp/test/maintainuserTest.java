@@ -27,7 +27,6 @@ class maintainuserTest {
             writer.println("name,email,password,role,validated");
             writer.println("John Doe,john@example.com,john-123,student,false");
         }
-        // Temporarily rename test file to use in test
         Files.copy(new File(testCSV).toPath(), new File("users.csv").toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
     }
 
