@@ -26,7 +26,7 @@ class generatorTest {
 	    void testGenerateStrongPassword() {
 	        String password = Generator.generateStrongPassword();
 	        assertNotNull(password);
-	        assertEquals(4, password.length()); // one from each group
+	        assertEquals(4, password.length()); 
 	        assertTrue(password.matches(".*[A-Z].*"));
 	        assertTrue(password.matches(".*[a-z].*"));
 	        assertTrue(password.matches(".*[0-9].*"));
