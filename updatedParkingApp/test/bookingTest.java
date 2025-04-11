@@ -39,10 +39,10 @@ class bookingTest {
 
     @Test
     void testConstructor() {
-        assertEquals("John", booking.getUser().getName()); // Test user name
-        assertEquals("XYZ123", booking.getLicensePlate());  // Test license plate
-        assertEquals(startTime, booking.getStartTime());    // Test start time
-        assertEquals(endTime, booking.getEndTime());        // Test end time
+        assertEquals("John", booking.getUser().getName()); 
+        assertEquals("XYZ123", booking.getLicensePlate());  
+        assertEquals(startTime, booking.getStartTime());    
+        assertEquals(endTime, booking.getEndTime());       
     }
 
     @Test
